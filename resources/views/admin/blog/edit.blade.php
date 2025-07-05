@@ -50,7 +50,7 @@
                                 <small>(https://printerithelp.com/blogs)</small></label>
                             <div class="col-md-9">
                                 <input type="text" placeholder="Slug" name="slug" id="slug" class="form-control"
-                                    value="{{ $blog->slug }}" required>
+                                    value="{{ $blog->slug }}" required disabled>
                                 @error('slug')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

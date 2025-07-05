@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="slug">Slug</label>
-                                <input type="text" name="slug" class="form-control" value="{{ old('slug', $brand->slug) }}">
+                                <input disabled type="text" name="slug" class="form-control" value="{{ old('slug', $brand->slug) }}">
                             </div>
                         </div>
                         <div class="row mb-3">

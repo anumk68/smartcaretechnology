@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label">Slug</label>
-                                            <input type="text" class="form-control" name="slug" placeholder="Slug name" value="{{$categories->slug}}">
+                                            <input type="text" class="form-control" name="slug" placeholder="Slug name" value="{{$categories->slug}}" disabled>
                                         </div>
                                         <div class="col-12">
                                             <div class="d-grid">

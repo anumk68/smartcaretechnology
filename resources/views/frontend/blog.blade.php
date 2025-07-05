@@ -15,9 +15,10 @@
                     alt="shape">
             </div>
             <div class="container">
-                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog </h2>
+                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blogs </h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                    <a href="{{ route('index') }}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>Blog </span>
+                    <a href="{{ route('index') }}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>Blogs
+                    </span>
                 </div>
             </div>
         </section>
@@ -76,7 +77,7 @@
                                                     </clipPath>
                                                 </defs>
                                             </svg>
-                                            <p>{{ $blog->reviews->count() }} Comments</p>
+                                            <p>{{ $blog->reviews->where('status', 'active')->count() }} Comments</p>
                                         </li>
                                     </ul>
                                     <h3>

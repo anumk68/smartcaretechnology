@@ -180,48 +180,25 @@
                         Services <i class="fa-regular fa-arrow-right-long"></i></a>
                 </div>
                 <div class="row g-4">
+                    @foreach ($services as $servic)
+
                     <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="00ms" data-wow-duration="1000ms">
                         <div class="service__item">
+                            <a href="{{url('services-details/'. $servic->slug)}}">
                             <div class="service-shape">
                                 <img src="{{ asset('public/assets/images/shape/service-item-shape.png') }}"
-                                    alt="shape">
+                                alt="shape">
                             </div>
                             <div class="service__icon">
                                 <img src="{{ asset('public/assets/images/icon/service-icon1.png') }}" alt="icon">
                             </div>
-                            <h4><a href="service.php">IT Management</a></h4>
-                            <p>Pellentesque nec the condimentum nec lorem nulla augue est ultricies ac iaculis ut
-                                euismod quis sapien.</p>
+                            <h4>{{ $servic->service_name}}</h4>
+                            <p>{!! \Illuminate\Support\Str::words(strip_tags($servic->description), 20 , '...') !!}</p>
+                            </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
-                        <div class="service__item active">
-                            <div class="service-shape">
-                                <img src="{{ asset('public/assets/images/shape/service-item-shape.png') }}"
-                                    alt="shape">
-                            </div>
-                            <div class="service__icon">
-                                <img src="{{ asset('public/assets/images/icon/service-icon2.png') }}" alt="icon">
-                            </div>
-                            <h4><a href="service.php">Cyber Security</a></h4>
-                            <p>Pellentesque nec the condimentum nec lorem nulla augue est ultricies ac iaculis ut
-                                euismod quis sapien.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="400ms" data-wow-duration="1000ms">
-                        <div class="service__item">
-                            <div class="service-shape">
-                                <img src="{{ asset('public/assets/images/shape/service-item-shape.png') }}"
-                                    alt="shape">
-                            </div>
-                            <div class="service__icon">
-                                <img src="{{ asset('public/assets/images/icon/service-icon3.png') }}" alt="icon">
-                            </div>
-                            <h4><a href="service.php">Web Development</a></h4>
-                            <p>Pellentesque nec the condimentum nec lorem nulla augue est ultricies ac iaculis ut
-                                euismod quis sapien.</p>
-                        </div>
-                    </div>
+                        @endforeach
+
                 </div>
             </div>
         </section>
@@ -798,31 +775,14 @@
                     </div>
                     <div class="swiper brand__slider">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            @foreach ($brands as $brand )
+                                 <div class="swiper-slide">
                                 <div class="brand__image image">
-                                    <img src="{{ asset('public/assets/images/brand/brand-image1.png') }}" alt="image">
+                                    <img src="{{ asset('storage/app/public/'. $brand->banner_image) }}" alt="image" >
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="brand__image image">
-                                    <img src="{{ asset('public/assets/images/brand/brand-image2.png') }}" alt="image">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand__image image">
-                                    <img src="{{ asset('public/assets/images/brand/brand-image3.png') }}" alt="image">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand__image image">
-                                    <img src="{{ asset('public/assets/images/brand/brand-image4.png') }}" alt="image">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand__image image">
-                                    <img src="{{ asset('public/assets/images/brand/brand-image5.png') }}" alt="image">
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -1028,7 +988,7 @@
                                     <div class="col-sm-6">
                                         <label for="name">Your name*</label>
                                         <input type="text" id="name" name="name" value="{{ old('name') }}"
-                                            placeholder="Enter your name">
+                                            placeholder="Enter your name" required>
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -1036,7 +996,7 @@
                                     <div class="col-sm-6">
                                         <label for="email">Your Email*</label>
                                         <input type="email" id="email" name="email"
-                                            value="{{ old('email') }}" placeholder="Enter your email">
+                                            value="{{ old('email') }}" placeholder="Enter your email" required>
                                         @error('email')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -1044,7 +1004,7 @@
                                     <div class="col-sm-6">
                                         <label for="subject">subject*</label>
                                         <input type="text" id="subject" name="subject"
-                                            value="{{ old('subject') }}" placeholder="Subject">
+                                            value="{{ old('subject') }}" placeholder="Subject" >
                                         @error('subject')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -1055,7 +1015,7 @@
                                             value="{{ old('phone_no') }}" maxlength="10" minlength="10"
                                             pattern="\d{10}" inputmode="numeric"
                                             oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-                                            placeholder="Enter 10-digit number">
+                                            placeholder="Enter 10-digit number" required>
 
                                         @error('phone_no')
                                             <small class="text-danger">{{ $message }}</small>
@@ -1063,7 +1023,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="massage">Message*</label>
-                                        <textarea id="massage" placeholder="Write Message" name="message" value="{{ old('message') }}"></textarea>
+                                        <textarea id="massage" placeholder="Write Message" name="message" value="{{ old('message') }}" required></textarea>
                                         @error('message')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -1222,7 +1182,7 @@
                                                     </clipPath>
                                                 </defs>
                                             </svg>
-                                            <a href="{{ url('blog/' . $blog->slug) }}">{{ $blog->reviews->count() ?? '0'}} Comments</a>
+                                            <a href="{{ url('blog/' . $blog->slug) }}">{{ $blog->reviews->where('status', 'active')->count() ?? '0'}} Comments</a>
                                         </li>
                                     </ul>
                                     <h3><a href="{{ url('blog/' . $blog->slug)}}" class="primary-hover">{{$blog->title}}</a></h3>

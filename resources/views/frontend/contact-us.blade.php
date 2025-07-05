@@ -145,6 +145,16 @@
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
+
+                                        <div class="col-12">
+                                            <label for="subject">Subject*</label>
+                                            <input class="bg-transparent bor @error('subject') input-error @enderror"
+                                                id="subject" type="subject" name="subject" placeholder="Subject"
+                                                value="{{ old('subject') }}">
+                                            @error('subject')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </div>
 
                                     <div class="text-area mt-3">

@@ -104,7 +104,7 @@ class BlogController extends Controller
         }
         $blog->category_id = $request->category_id;
         $blog->title = $request->title;
-        $blog->slug = strtolower($slug);
+        $blog->slug = $blog->slug;
         $blog->short_description = $request->short_description;
         $blog->description = $request->description;
         $blog->meta_title = $request->meta_title;

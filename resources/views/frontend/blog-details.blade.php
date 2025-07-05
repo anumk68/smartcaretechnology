@@ -27,7 +27,7 @@
                     alt="shape">
             </div>
             <div class="container">
-                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog Details</h2>
+                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog - {{$blog->title}}</h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
                     <a href="{{ route('index') }}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>Blog
                         Details</span>

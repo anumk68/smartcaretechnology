@@ -48,6 +48,35 @@
 						</div>
 					 </div>
 					 </div>
+					 <div class="col">
+					  <div class="card radius-10">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Brands</p>
+									<h4 class="my-1">{{ App\Models\ServicesBrand::count()}}</h4>
+								</div>
+								<div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-tools"></i>
+
+								</div>
+							</div>
+						</div>
+					 </div>
+					 </div>
+					 <div class="col">
+					  <div class="card radius-10">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Services</p>
+									<h4 class="my-1">{{ App\Models\Service::count()}}</h4>
+								</div>
+								<div class="widget-icon-large bg-gradient-warning  text-white ms-auto"><i class="bi bi-tools"></i>
+								</div>
+							</div>
+						</div>
+					 </div>
+					 </div>
 
 				  </div>
 

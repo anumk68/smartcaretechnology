@@ -4,12 +4,13 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\ServicesBrand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ServicesBrandController extends Controller
 {
     public function index()
     {
-        $brands = ServicesBrand::all();
+        $brands = ServicesBrand::orderby('created_at', 'desc')->get();
         return view('admin.services.brands.list', compact('brands'));
     }
 
@@ -21,9 +22,9 @@ class ServicesBrandController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'brand_name'       => 'nullable|string|max:255',
+            'brand_name'       => 'required|string|max:255|unique:services_brands,brand_name',
             'icon_image'       => 'nullable',
-            'slug'             => 'nullable|string|max:255',
+            'slug'             => 'required|string|max:255|unique:services_brands,slug',
             'description'      => 'nullable|string',
             'banner_image'     => 'nullable',
             'status'           => 'nullable|in:active,inactive',
@@ -43,7 +44,7 @@ class ServicesBrandController extends Controller
         if ($request->hasFile('additional_image')) {
             $validated['additional_image'] = $request->file('additional_image')->store('brands/additional', 'public');
         }
-
+        $validated['slug'] = Str::slug(strtolower($request->slug));
         ServicesBrand::create($validated);
 
         return redirect()->route('brands.index')->with('success', 'Brand created successfully!');

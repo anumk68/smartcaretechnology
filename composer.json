@@ -24,7 +24,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+         "files": [
+        "app/Helpers/custom_helpers.php"
+    ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -55,6 +58,8 @@
             "@php artisan config:clear --ansi",
             "@php artisan test"
         ]
+
+
     },
     "extra": {
         "laravel": {
@@ -72,4 +77,7 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true
+
+
+
 }

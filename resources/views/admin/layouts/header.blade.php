@@ -33,14 +33,7 @@
                  </a>
                </li>
                <li><hr class="dropdown-divider"></li>
-               <li>
-                  <a class="dropdown-item" href="#">
-                     <div class="d-flex align-items-center">
-                       <div class="setting-icon"><i class="bi bi-person-fill"></i></div>
-                       <div class="setting-text ms-3"><span>Profile</span></div>
-                     </div>
-                   </a>
-                </li>
+
 
                 <li><hr class="dropdown-divider"></li>
                 <li>
@@ -48,7 +41,7 @@
                      <div class="d-flex align-items-center">
                        <div class="setting-icon"><i class="bi bi-lock-fill"></i></div>
                        <div class="setting-text ms-3">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: inline;">
                             @csrf
                             <button type="submit" class="btn btn-link p-0 m-0 align-baseline">Logout</button>
                         </form>

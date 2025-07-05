@@ -1,24 +1,24 @@
 @extends('frontend.layouts.app')
 @section('content')
-
     <main>
         <!-- Page banner area start here -->
         <section class="banner__inner-page bg-image pt-180 pb-180 bg-image"
-            data-background="{{asset('public/assets')}}/images/banner/banner-inner-page.jpg">
+            data-background="{{ asset('public/assets') }}/images/banner/banner-inner-page.jpg">
             <div class="shape2 wow slideInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
-                <img src="{{asset('public/assets')}}/images/banner/inner-banner-shape2.png" alt="shape">
+                <img src="{{ asset('public/assets') }}/images/banner/inner-banner-shape2.png" alt="shape">
             </div>
             <div class="shape1 wow slideInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <img src="{{asset('public/assets')}}/images/banner/inner-banner-shape1.png" alt="shape">
+                <img src="{{ asset('public/assets') }}/images/banner/inner-banner-shape1.png" alt="shape">
             </div>
             <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <img class="sway__animationX" src="{{asset('public/assets')}}/images/banner/inner-banner-shape3.png" alt="shape">
+                <img class="sway__animationX" src="{{ asset('public/assets') }}/images/banner/inner-banner-shape3.png"
+                    alt="shape">
             </div>
             <div class="container">
-                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Service Details</h2>
+                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Service - {{$services_d->service_name}} </h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                    <a href="{{ route('index')}}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>Service
-                        Details</span>
+                    <a href="{{ route('index') }}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>Service
+                        Details </span>
                 </div>
             </div>
         </section>
@@ -31,7 +31,7 @@
                     <div class="col-lg-8 order-2 order-lg-1">
                         <div class="service-single__left-item">
                             <div class="image mb-50">
-                                <img src="{{asset('public/assets')}}/images/service/service-single-image1.jpg" alt="image">
+                                <img src="{{ asset('storage/app/public/' . $services_d->banner_image) }}" alt="image">
                                 <div class="service-single__video-btn">
                                     <div class="video-btn video-pulse wow fadeIn" data-wow-delay="200ms"
                                         data-wow-duration="1500ms">
@@ -40,135 +40,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="title mb-30">IT Management</h3>
-                            <p class="mb-20">The is ipsum dolor sit amet consectetur adipiscing elit. Fusce is eleifend
-                                porta
-                                arcu In hac habitasse the platea
-                                thelorem turpoi dictumst. In lacus libero faucibus malesuada sagittis placerat eros sed
-                                istincidunt augue ac ante rutrum
-                                sed the is sodales augue consequat.</p>
-                            <p>lacus sed pretium pretium justo. Integer is vitae venenatis lorem. Maecenas lacinia
-                                turpis the in
-                                nunc quam hendrerit
-                                scelerisque at finibus enim sagittis. Aliquam erat is volutpat nam nec purus at is orci
-                                volutpat
-                                semper vel id turpis In
-                                a malesuada arcu ac hendrerit.</p>
-                            <div class="row g-5 mt-40 mb-40 align-items-center">
-                                <div class="col-lg-5">
-                                    <h4 class="mb-20">Benefits With Our Service</h4>
-                                    <ul>
-                                        <li class="mb-15"><i class="fa-solid fa-check"></i>Technology Consultancy</li>
-                                        <li class="mb-15"><i class="fa-solid fa-check"></i>Maintenance And Support</li>
-                                        <li class="mb-15"><i class="fa-solid fa-check"></i>We Provide best services</li>
-                                        <li class="mb-15"><i class="fa-solid fa-check"></i>Requirements Gathering</li>
-                                        <li class="mb-15"><i class="fa-solid fa-check"></i>Business Growth</li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7">
-                                    <div class="image">
-                                        <img src="{{asset('public/assets')}}/images/service/service-single-image2.jpg" alt="image">
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mb-40">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore of
-                                magna
-                                aliqua. Ut enim ad minim
-                                veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                dolor
-                                commodo consequat. Duis
-                                aute irure and dolor in reprehenderit.</p>
-                            <h3 class="title mb-30">Most Comment Question?</h3>
-                            <p class="mb-30">The is ipsum dolor sit amet consectetur adipiscing elit. Fusce is eleifend
-                                porta
-                                arcu In hac
-                                habitasse the platea
-                                thelorem turpoi dictumst. In lacus libero faucibus malesuada sagittis placerat eros sed
-                                istincidunt augue ac ante rutrum
-                                sed the is sodales augue consequat.</p>
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item wow fadeInDown shadow border-none" data-wow-delay="00ms"
-                                    data-wow-duration="1500ms">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Where should I incorporate my business?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>It is a long established fact that a reader be distracted by
-                                                the readable content of a page when looking a its layout.
-                                                Many desktop publishing packages and web page editors now use Lorem
-                                                Ipsum
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item wow fadeInDown shadow border-none" data-wow-delay="200ms"
-                                    data-wow-duration="1500ms">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            What happens my free trial?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>It is a long established fact that a reader be distracted by
-                                                the readable content of a page when looking a its layout.
-                                                Many desktop publishing packages and web page editors now use Lorem
-                                                Ipsum
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item wow fadeInDown shadow border-none" data-wow-delay="400ms"
-                                    data-wow-duration="1500ms">
-                                    <h2 class="accordion-header" id="headingthree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapsethree"
-                                            aria-expanded="false" aria-controls="collapsethree">
-                                            What is included in your services?
-                                        </button>
-                                    </h2>
-                                    <div id="collapsethree" class="accordion-collapse collapse"
-                                        aria-labelledby="headingthree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>It is a long established fact that a reader be distracted by
-                                                the readable content of a page when looking a its layout.
-                                                Many desktop publishing packages and web page editors now use Lorem
-                                                Ipsum
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item wow fadeInDown shadow border-none" data-wow-delay="600ms"
-                                    data-wow-duration="1500ms">
-                                    <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                            aria-expanded="false" aria-controls="collapseFour">
-                                            What type of company is measured?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                        aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>It is a long established fact that a reader be distracted by
-                                                the readable content of a page when looking a its layout.
-                                                Many desktop publishing packages and web page editors now use Lorem
-                                                Ipsum
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="title mb-30">{{ $services_d->service_name }}</h3>
+                            <p class="mb-20">{!! $services_d->description !!}</p>
+
+
                         </div>
                     </div>
                     <div class="col-lg-4 order-1 order-lg-2">
@@ -176,16 +51,18 @@
                             <div class="item sub-bg mb-30">
                                 <h4 class="mb-20">All Services</h4>
                                 <ul class="category service-category">
-                                    <li><a href="#0">Database Security</a> <i
-                                            class="fa-regular fa-arrow-right-long primary-color"></i></li>
-                                    <li><a href="#0">IT Consultancy</a> <i
+                                    @foreach ($services_brands as $Sbrand)
+                                        <li><a href="{{url('services/'.$Sbrand->slug)}}">{{$Sbrand->brand_name}}</a> <i
+                                                class="fa-regular fa-arrow-right-long primary-color"></i></li>
+                                    @endforeach
+                                    {{-- <li><a href="#0">IT Consultancy</a> <i
                                             class="fa-regular fa-arrow-right-long primary-color"></i></li>
                                     <li class="active"><a href="#0">App Development</a> <i
                                             class="fa-regular fa-arrow-right-long primary-color"></i></li>
                                     <li><a href="#0">UI/UX Design</a> <i
                                             class="fa-regular fa-arrow-right-long primary-color"></i></li>
                                     <li><a href="#0">Cyber Security</a> <i
-                                            class="fa-regular fa-arrow-right-long primary-color"></i></li>
+                                            class="fa-regular fa-arrow-right-long primary-color"></i></li> --}}
                                 </ul>
                             </div>
                             <div class="item sub-bg mb-30">
@@ -248,4 +125,4 @@
         </section>
         <!-- Service area end here -->
     </main>
- @endsection
+@endsection

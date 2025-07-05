@@ -25,7 +25,7 @@ class ServicesController extends Controller
         $validated = $request->validate([
             'service_name' => 'required|string|max:255',
             'brand_id' => 'required|exists:services_brands,id',
-            'slug' => 'nullable|string|max:255',
+            'slug' => 'required|string|max:255|unique:services,slug',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'description' => 'nullable|string',
@@ -41,7 +41,7 @@ class ServicesController extends Controller
             $validated['banner_image'] = $request->file('banner_image')->store('services/banners', 'public');
         }
         $validated['status'] = $validated['status'] ?? 'active';
-        $validated['slug'] = $validated['slug'] ?? Str::slug($validated['service_name']);
+        $validated['slug'] = Str::slug(strtolower($request['slug'])) ?? Str::slug(strtolower($request['service_name']));
 
         Service::create($validated);
         return redirect()->route('services.index')->with('success', 'Service created successfully.');
@@ -56,7 +56,6 @@ class ServicesController extends Controller
         $validated = $request->validate([
             'service_name' => 'required|string|max:255',
             'brand_id' => 'required|exists:services_brands,id',
-            'slug' => 'nullable|string|max:255',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'description' => 'nullable|string',

@@ -7,6 +7,8 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogReview;
 use App\Models\Contact;
+use App\Models\Service;
+use App\Models\ServicesBrand;
 use Illuminate\Container\Attributes\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -17,19 +19,37 @@ class IndexController extends Controller
     public function index()
     {
         $blogs_index = Blog::with('reviews')->where('status', 'active')->take(3)->get();
-        return view('frontend.index', compact('blogs_index'));
+        $brands      = ServicesBrand::with('services')->where('status', 'active')->get();
+        $services  = Service::where('status', 'active')->limit(3)->orderby('created_at', 'desc')->get();
+        return view('frontend.index', compact('blogs_index', 'brands','services'));
     }
     public function about()
     {
-        return view('frontend.about');
+        $blogs  = Blog::with('reviews')->where('status', 'active')->take(3)->get();
+        $brands = ServicesBrand::with('services')->where('status', 'active')->get();
+        return view('frontend.about', compact('blogs', 'brands'));
     }
-    public function services()
+
+    public function servicess($slug = null)
     {
-        return view('frontend.services');
+        $query = Service::with('brand')->where('status', 'active');
+
+        if ($slug) {
+            $query->whereHas('brand', function ($q) use ($slug) {
+                $q->where('slug', $slug);
+            });
+        }
+
+        $services = $query->orderBy('created_at', 'desc')->paginate(9);
+
+        return view('frontend.services', compact('services'));
     }
-    public function service_details()
+
+    public function service_details($slug)
     {
-        return view('frontend.service-details');
+        $services_brands = ServicesBrand::orderby('created_at', 'desc')->get();
+        $services_d      = Service::where('status', 'active')->where('slug', $slug)->first();
+        return view('frontend.service-details', compact('services_d', 'services_brands'));
     }
     public function howWeWork()
     {
@@ -113,24 +133,23 @@ class IndexController extends Controller
             'email'   => 'required|email',
             'rating'  => 'required|integer|min:1|max:5',
             'comment' => 'required',
-            'status' => 'inactive',
+            'status'  => 'inactive',
         ]);
 
-    $data = $request->all();
-    $data['status'] = 'inactive';
-    BlogReview::create($data);
+        $data           = $request->all();
+        $data['status'] = 'inactive';
+        BlogReview::create($data);
 
         return back()->with('success', 'Review submitted successfully!');
     }
 
+    public function search_blog(Request $request)
+    {
+        $keyword = $request->query('query');
 
-public function search_blog(Request $request)
-{
-    $keyword = $request->query('query');
+        $blogs = Blog::where('title', 'LIKE', '%' . $keyword . '%')->get();
 
-    $blogs = Blog::where('title', 'LIKE', '%' . $keyword . '%')->get();
-
-    return response()->json($blogs);
-}
+        return response()->json($blogs);
+    }
 
 }
