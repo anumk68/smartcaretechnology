@@ -23,7 +23,6 @@ Route::get('/services-details/{slug}', [IndexController::class, 'service_details
 Route::get('/how-we-work', [IndexController::class, 'howWeWork'])->name('how.we.work');
 Route::get('/contact-us', [IndexController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [IndexController::class, 'contact_store'])->name('contact.store');
-Route::get('/pricing', [IndexController::class, 'pricing'])->name('pricing');
 Route::get('/blogs/{slug?}', [IndexController::class, 'blog'])->name('blog');
 
 Route::get('/blog/{slug}', [IndexController::class, 'blog_details'])->name('blog.details');

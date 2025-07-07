@@ -110,7 +110,7 @@
                         <h2 class="text-white wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">Enhance
                             and Pioneer Using <br> Technology Trends</h2>
                     </div>
-                    <a href="{{ route('pricing')}}" class="btn-one wow fadeInUp" data-wow-delay="200ms"
+                    <a href="{{ route('services')}}" class="btn-one wow fadeInUp" data-wow-delay="200ms"
                         data-wow-duration="1500ms">Explore
                         More <i class="fa-regular fa-arrow-right-long"></i></a>
                 </div>
@@ -332,7 +332,7 @@
                                     <div class="col-sm-6">
                                         <label for="name">Your name*</label>
                                         <input type="text" id="name" name="name" value="{{ old('name') }}"
-                                            placeholder="Enter your name" required>
+                                            placeholder="Enter your name" >
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -340,7 +340,7 @@
                                     <div class="col-sm-6">
                                         <label for="email">Your Email*</label>
                                         <input type="email" id="email" name="email"
-                                            value="{{ old('email') }}" placeholder="Enter your email" required>
+                                            value="{{ old('email') }}" placeholder="Enter your email"  >
                                         @error('email')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -359,7 +359,7 @@
                                             value="{{ old('phone_no') }}" maxlength="10" minlength="10"
                                             pattern="\d{10}" inputmode="numeric"
                                             oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-                                            placeholder="Enter 10-digit number" required>
+                                            placeholder="Enter 10-digit number"  >
 
                                         @error('phone_no')
                                             <small class="text-danger">{{ $message }}</small>
@@ -367,7 +367,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="massage">Message*</label>
-                                        <textarea id="massage" placeholder="Write Message" name="message" value="{{ old('message') }}" required></textarea>
+                                        <textarea id="massage" placeholder="Write Message" name="message" value="{{ old('message') }}"  ></textarea>
                                         @error('message')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -539,4 +539,78 @@
         </section>
         <!-- Team area end here -->
     </main>
+     <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            // Clear old errors
+            form.querySelectorAll(".text-danger").forEach(el => el.remove());
+            form.querySelectorAll(".input-error, .input-danger").forEach(el => el.classList.remove("input-error",
+                "input-danger"));
+
+            // Disable button and show spinner
+            submitBtn.disabled = true;
+            submitBtn.innerHTML =
+                `<span class="spinner-border spinner-border-sm me-2" role="status"></span> Sending...`;
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                },
+                body: formData
+            }).then(async (response) => {
+                const data = await response.json();
+
+                if (!response.ok) {
+                    // Validation or server errors
+                    if (data.errors) {
+                        for (const [field, messages] of Object.entries(data.errors)) {
+                            const input = form.querySelector(`[name="${field}"]`);
+                            if (input) {
+                                input.classList.add("input-error", "input-danger");
+
+                                const error = document.createElement("small");
+                                error.classList.add("text-danger");
+                                error.textContent = messages[0];
+                                input.insertAdjacentElement('afterend', error);
+                            }
+                        }
+                    } else {
+                        alert(data.message || "An error occurred.");
+                    }
+
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                } else {
+                    // Success
+                    const successMessage = document.createElement("div");
+                    successMessage.classList.add("alert", "alert-success", "mt-3");
+                    successMessage.textContent = data.message || "Message sent successfully!";
+                    form.appendChild(successMessage);
+                    form.reset();
+
+                    // Remove success message after 2 seconds
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 2000);
+
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+
+                }
+            }).catch(err => {
+                console.error(err);
+                alert("Something went wrong. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
+        });
+    </script>
 @endsection

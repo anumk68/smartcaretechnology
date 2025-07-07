@@ -27,6 +27,7 @@
         <!-- Blog area start here -->
         <section class="blog-area pt-120 pb-120">
             <div class="container">
+                  @if ($blogs->count())
                 <div class="row g-4">
                     @foreach ($blogs as $blog)
                         <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
@@ -93,28 +94,32 @@
 
 
                 </div>
-                <div class="pegi justify-content-center mt-60">
-                    @if ($blogs->onFirstPage())
-                        <span class="disabled"><i class="fa-solid fa-arrow-left-long primary-color transition"></i></span>
+               <div class="pegi justify-content-center mt-60">
+                @if ($blogs->onFirstPage())
+                    <span class="disabled"><i class="fa-solid fa-arrow-left-long primary-color transition"></i></span>
+                @else
+                    <a href="{{ $blogs->previousPageUrl() }}"><i class="fa-solid fa-arrow-left-long primary-color transition"></i></a>
+                @endif
+
+                @for ($page = 1; $page <= $blogs->lastPage(); $page++)
+                    @if ($page == $blogs->currentPage())
+                        <a href="{{ $blogs->url($page) }}" class="active">{{ str_pad($page, 2, '0', STR_PAD_LEFT) }}</a>
                     @else
-                        <a href="{{ $blogs->previousPageUrl() }}"><i
-                                class="fa-solid fa-arrow-left-long primary-color transition"></i></a>
+                        <a href="{{ $blogs->url($page) }}">{{ str_pad($page, 2, '0', STR_PAD_LEFT) }}</a>
                     @endif
-                    @for ($page = 1; $page <= $blogs->lastPage(); $page++)
-                        @if ($page == $blogs->currentPage())
-                            <a href="{{ $blogs->url($page) }}"
-                                class="active">{{ str_pad($page, 2, '0', STR_PAD_LEFT) }}</a>
-                        @else
-                            <a href="{{ $blogs->url($page) }}">{{ str_pad($page, 2, '0', STR_PAD_LEFT) }}</a>
-                        @endif
-                    @endfor
-                    @if ($blogs->hasMorePages())
-                        <a href="{{ $blogs->nextPageUrl() }}"><i
-                                class="fa-solid fa-arrow-right-long primary-color transition"></i></a>
-                    @else
-                        <span class="disabled"><i class="fa-solid fa-arrow-right-long primary-color transition"></i></span>
-                    @endif
-                </div>
+                @endfor
+
+                @if ($blogs->hasMorePages())
+                    <a href="{{ $blogs->nextPageUrl() }}"><i class="fa-solid fa-arrow-right-long primary-color transition"></i></a>
+                @else
+                    <span class="disabled"><i class="fa-solid fa-arrow-right-long primary-color transition"></i></span>
+                @endif
+            </div>
+        @else
+            <div class="text-center py-5">
+                <h4 class="text-muted">No blog posts found.</h4>
+            </div>
+        @endif
 
             </div>
         </section>

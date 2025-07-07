@@ -47,9 +47,14 @@ class IndexController extends Controller
 
     public function service_details($slug)
     {
-        $services_brands = ServicesBrand::orderby('created_at', 'desc')->get();
+        $services_brands = ServicesBrand::where('status', 'active')->orderby('created_at', 'desc')->get();
         $services_d      = Service::where('status', 'active')->where('slug', $slug)->first();
+        if ($services_d) {
         return view('frontend.service-details', compact('services_d', 'services_brands'));
+        }else {
+        return redirect()->route('services');
+
+        }
     }
     public function howWeWork()
     {
@@ -58,10 +63,6 @@ class IndexController extends Controller
     public function contact()
     {
         return view('frontend.contact-us');
-    }
-    public function pricing()
-    {
-        return view('frontend.pricing');
     }
 
     public function blog($slug = null)
@@ -100,12 +101,21 @@ class IndexController extends Controller
             'message' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput()
-                ->with('error', 'Please fill in all required fields before submitting the form.');
-        }
+       if ($validator->fails()) {
+    if ($request->expectsJson()) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Validation failed',
+            'errors' => $validator->errors()
+        ], 422);
+    }
+
+    return back()
+        ->withErrors($validator)
+        ->withInput()
+        ->with('error', 'Please fill in all required fields before submitting the form.');
+}
+
         try {
             $details = Contact::create([
                 'name'     => $request->name,
@@ -117,11 +127,20 @@ class IndexController extends Controller
 
             Mail::to('hardeepsingh.digirush@gmail.com')->send(new ContactMail($details));
 
-            return back()->with('success', 'Message has been sent!');
-        } catch (\Exception $e) {
-            Log::error("message"); ('Mail error: ' . $e->getMessage());
-            return back()->with('error', 'Something went wrong. Message not sent.');
-        }
+           return response()->json([
+    'status' => 'success',
+    'message' => 'Message has been sent!'
+]);
+
+}catch (\Exception $e) {
+    Log::error('Mail error: ' . $e->getMessage());
+
+    return response()->json([
+        'status' => 'error',
+        'message' => 'Something went wrong. Message not sent.'
+    ], 500);
+}
+
 
     }
 

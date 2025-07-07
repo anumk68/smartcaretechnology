@@ -42,27 +42,18 @@
                             </div>
                             <h3 class="title mb-30">{{ $services_d->service_name }}</h3>
                             <p class="mb-20">{!! $services_d->description !!}</p>
-
-
                         </div>
                     </div>
                     <div class="col-lg-4 order-1 order-lg-2">
                         <div class="service-single__right-item">
                             <div class="item sub-bg mb-30">
-                                <h4 class="mb-20">All Services</h4>
+                                <h4 class="mb-20">All Services category</h4>
                                 <ul class="category service-category">
                                     @foreach ($services_brands as $Sbrand)
-                                        <li><a href="{{url('services/'.$Sbrand->slug)}}">{{$Sbrand->brand_name}}</a> <i
-                                                class="fa-regular fa-arrow-right-long primary-color"></i></li>
+                                        <li><a href="{{url('services/'.$Sbrand->slug)}}">{{$Sbrand->brand_name}}</a> <a href="{{url('services/'.$Sbrand->slug)}}"><i
+                                                class="fa-regular fa-arrow-right-long primary-color"></a></i></li>
                                     @endforeach
-                                    {{-- <li><a href="#0">IT Consultancy</a> <i
-                                            class="fa-regular fa-arrow-right-long primary-color"></i></li>
-                                    <li class="active"><a href="#0">App Development</a> <i
-                                            class="fa-regular fa-arrow-right-long primary-color"></i></li>
-                                    <li><a href="#0">UI/UX Design</a> <i
-                                            class="fa-regular fa-arrow-right-long primary-color"></i></li>
-                                    <li><a href="#0">Cyber Security</a> <i
-                                            class="fa-regular fa-arrow-right-long primary-color"></i></li> --}}
+
                                 </ul>
                             </div>
                             <div class="item sub-bg mb-30">
