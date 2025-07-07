@@ -281,14 +281,6 @@
             </div>
         </section>
         <!-- About area end here -->
-
-
-
-
-
-
-
-
         <!-- Counter area start here -->
         <section class="counter-area pt-130">
             <div class="container">

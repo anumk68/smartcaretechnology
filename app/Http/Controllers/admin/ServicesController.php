@@ -1,35 +1,37 @@
 <?php
-
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\ServicesBrand;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ServicesController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $services = Service::with('brand')->orderBy('id', 'desc')->get();
         return view('admin.services.services.list', compact('services'));
     }
 
-    public function create() {
+    public function create()
+    {
         $brands = ServicesBrand::where('status', 'active')->get();
         return view('admin.services.services.create', compact('brands'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'service_name' => 'required|string|max:255',
-            'brand_id' => 'required|exists:services_brands,id',
-            'slug' => 'required|string|max:255|unique:services,slug',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
+            'brand_id'     => 'required|exists:services_brands,id',
+            'slug'         => 'required|string|max:255|unique:services,slug',
+            'icon'         => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
-            'description' => 'nullable|string',
-            'status' => 'nullable|in:active,inactive'
+            'description'  => 'nullable|string',
+            'status'       => 'nullable|in:active,inactive',
         ]);
 
         // Handle file uploads
@@ -41,25 +43,27 @@ class ServicesController extends Controller
             $validated['banner_image'] = $request->file('banner_image')->store('services/banners', 'public');
         }
         $validated['status'] = $validated['status'] ?? 'active';
-        $validated['slug'] = Str::slug(strtolower($request['slug'])) ?? Str::slug(strtolower($request['service_name']));
+        $validated['slug']   = Str::slug(strtolower($request['slug'])) ?? Str::slug(strtolower($request['service_name']));
 
         Service::create($validated);
         return redirect()->route('services.index')->with('success', 'Service created successfully.');
     }
 
-    public function edit(Service $service) {
+    public function edit(Service $service)
+    {
         $brands = ServicesBrand::where('status', 'active')->get();
         return view('admin.services.services.edit', compact('service', 'brands'));
     }
 
-    public function update(Request $request, Service $service) {
+    public function update(Request $request, Service $service)
+    {
         $validated = $request->validate([
             'service_name' => 'required|string|max:255',
-            'brand_id' => 'required|exists:services_brands,id',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
+            'brand_id'     => 'required|exists:services_brands,id',
+            'icon'         => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
-            'description' => 'nullable|string',
-            'status' => 'nullable|in:active,inactive'
+            'description'  => 'nullable|string',
+            'status'       => 'nullable|in:active,inactive',
         ]);
 
         if ($request->hasFile('icon')) {
@@ -76,14 +80,15 @@ class ServicesController extends Controller
             $validated['banner_image'] = $request->file('banner_image')->store('services/banners', 'public');
         }
 
-        $validated['slug'] = $validated['slug'] ?? Str::slug($validated['service_name']);
+        $validated['slug']   = $validated['slug'] ?? Str::slug($validated['service_name']);
         $validated['status'] = $validated['status'] ?? 'active';
 
         $service->update($validated);
         return redirect()->route('services.index')->with('success', 'Service updated successfully.');
     }
 
-    public function destroy(Service $service) {
+    public function destroy(Service $service)
+    {
         if ($service->icon) {
             Storage::disk('public')->delete($service->icon);
         }

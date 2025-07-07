@@ -104,8 +104,8 @@
                             <button type="submit" class="btn btn-primary">Register</button>
                         </div>
                     </form>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.card -->
+                </div>
+            </div>
         </div>
     </div>
 </div>

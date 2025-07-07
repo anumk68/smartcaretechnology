@@ -1,6 +1,5 @@
 @extends('admin.layouts.app')
 
-
 @section('content')
     <main class="page-content">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -46,14 +45,14 @@
                                     </td>
                                     <td>
                                         <div class="text-wrap" style="min-width: 150px; max-width: 200px;">
-                                            <p class="mb-0">{{ $data->email ?? '-'}}</p>
+                                            <p class="mb-0">{{ $data->email ?? '-' }}</p>
                                         </div>
                                     </td>
                                     <td>
                                         <p class="mb-0">{{ $data->phone_no ?? '-' }}</p>
                                     </td>
                                     <td>
-                                        <p class="mb-0">{{ $data->subject ?? '-'}}</p>
+                                        <p class="mb-0">{{ $data->subject ?? '-' }}</p>
                                     </td>
 
                                     <td>
@@ -62,7 +61,7 @@
                                             <div>
                                     </td>
                                     <td>{{ $data->created_at->format('d M Y, h:i A') }}</td>
-                                    </tr>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -79,38 +78,38 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.status-toggle').forEach(function (checkbox) {
-            checkbox.addEventListener('change', function (e) {
-                e.preventDefault();
-                const form = this.closest('form');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.status-toggle').forEach(function(checkbox) {
+                checkbox.addEventListener('change', function(e) {
+                    e.preventDefault();
+                    const form = this.closest('form');
 
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You want to change the status?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#28a745',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, change it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        let input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = 'status';
-                        input.value = checkbox.checked ? 'active' : 'inactive';
-                        form.appendChild(input);
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You want to change the status?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#28a745',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, change it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            let input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'status';
+                            input.value = checkbox.checked ? 'active' : 'inactive';
+                            form.appendChild(input);
 
-                        form.submit();
-                    } else {
-                        checkbox.checked = !checkbox.checked;
-                    }
+                            form.submit();
+                        } else {
+                            checkbox.checked = !checkbox.checked;
+                        }
+                    });
                 });
             });
         });
-    });
-</script>
+    </script>
 
     @if (session('success'))
         <script>

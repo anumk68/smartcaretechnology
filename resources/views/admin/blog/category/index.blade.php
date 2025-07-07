@@ -67,7 +67,6 @@
                                         <tbody>
 
                                             @forelse ($categories as $key=>$categorie)
-
                                                 <tr>
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>{{ $categorie->category_name }}</td>
@@ -97,7 +96,7 @@
                                                     </td>
                                                 </tr>
                                             @empty
-                                                <td >No categories available</td>
+                                                <td>No categories available</td>
                                             @endforelse
 
 

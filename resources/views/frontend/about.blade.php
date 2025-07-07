@@ -1,23 +1,23 @@
 @extends('frontend.layouts.app')
 @section('content')
-
     <main>
         <!-- Page banner area start here -->
         <section class="banner__inner-page bg-image pt-180 pb-180 bg-image"
-            data-background="{{asset('public/assets')}}/images/banner/banner-inner-page.jpg">
+            data-background="{{ asset('public/assets') }}/images/banner/banner-inner-page.jpg">
             <div class="shape2 wow slideInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
-                <img src="{{asset('public/assets')}}/images/banner/inner-banner-shape2.png" alt="shape">
+                <img src="{{ asset('public/assets') }}/images/banner/inner-banner-shape2.png" alt="shape">
             </div>
             <div class="shape1 wow slideInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <img src="{{asset('public/assets')}}/images/banner/inner-banner-shape1.png" alt="shape">
+                <img src="{{ asset('public/assets') }}/images/banner/inner-banner-shape1.png" alt="shape">
             </div>
             <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <img class="sway__animationX" src="{{asset('public/assets')}}/images/banner/inner-banner-shape3.png" alt="shape">
+                <img class="sway__animationX" src="{{ asset('public/assets') }}/images/banner/inner-banner-shape3.png"
+                    alt="shape">
             </div>
             <div class="container">
                 <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">About Us</h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                    <a href="{{ route('index')}}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>About
+                    <a href="{{ route('index') }}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>About
                         Us</span>
                 </div>
             </div>
@@ -27,35 +27,37 @@
         <!-- About area start here -->
         <section class="about-two-area pt-120">
             <div class="about-two__shape">
-                <img src="{{asset('public/assets')}}/images/shape/about-two-shape.png" alt="shape">
+                <img src="{{ asset('public/assets') }}/images/shape/about-two-shape.png" alt="shape">
             </div>
             <div class="container">
                 <div class="row g-4">
                     <div class="col-xl-6 wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
                         <div class="about-two__left-item">
                             <div class="dots">
-                                <img class="sway_Y__animation" src="{{asset('public/assets')}}/images/shape/about-two-dot.png" alt="shape">
+                                <img class="sway_Y__animation"
+                                    src="{{ asset('public/assets') }}/images/shape/about-two-dot.png" alt="shape">
                             </div>
                             <div class="shape-halper">
-                                <img class="sway__animation" src="{{asset('public/assets')}}/images/shape/about-circle-helper.png"
-                                    alt="shape">
+                                <img class="sway__animation"
+                                    src="{{ asset('public/assets') }}/images/shape/about-circle-helper.png" alt="shape">
                             </div>
                             <div class="image big-image">
-                                <img src="{{asset('public/assets')}}/images/about/about-two-image1.jpg" alt="image">
+                                <img src="{{ asset('public/assets') }}/images/about/about-two-image1.jpg" alt="image">
                             </div>
                             <div class="image sm-image">
-                                <img src="{{asset('public/assets')}}/images/about/about-two-image2.png" alt="image">
+                                <img src="{{ asset('public/assets') }}/images/about/about-two-image2.png" alt="image">
                             </div>
                             <div class="circle-shape">
-                                <img class="animation__rotate" src="{{asset('public/assets')}}/images/shape/about-two-circle.png"
-                                    alt="shape">
+                                <img class="animation__rotate"
+                                    src="{{ asset('public/assets') }}/images/shape/about-two-circle.png" alt="shape">
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="section-header mb-40">
                             <h5 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                <img class="me-1" src="{{asset('public/assets')}}/images/icon/section-title.png" alt="icon">
+                                <img class="me-1" src="{{ asset('public/assets') }}/images/icon/section-title.png"
+                                    alt="icon">
                                 WHO WE ARE
                             </h5>
                             <h2 class="wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">Ensuring Your
@@ -66,8 +68,7 @@
                                 turpis euismod quis sapien euismod
                                 quis sapien the condimentum nec lorem nulla augue.</p>
                         </div>
-                        <div class="about-two__right-item wow fadeInDown" data-wow-delay="200ms"
-                            data-wow-duration="1500ms">
+                        <div class="about-two__right-item wow fadeInDown" data-wow-delay="200ms" data-wow-duration="1500ms">
                             <ul>
                                 <li><i class="fa-solid fa-check"></i>Technology Consultancy</li>
                                 <li><i class="fa-solid fa-check"></i>We Provide best services</li>
@@ -78,8 +79,9 @@
                             </ul>
                         </div>
                         <div class="about__info mt-50 wow fadeInDown" data-wow-delay="400ms" data-wow-duration="1500ms">
-                            <a href="{{ route('services')}}" class="btn-one">Explore More <i class="fa-regular fa-arrow-right-long"></i></a>
-                            <img src="{{asset('public/assets')}}/images/about/singature.png" alt="singature">
+                            <a href="{{ route('services') }}" class="btn-one">Explore More <i
+                                    class="fa-regular fa-arrow-right-long"></i></a>
+                            <img src="{{ asset('public/assets') }}/images/about/singature.png" alt="singature">
                         </div>
                     </div>
                 </div>
@@ -90,27 +92,28 @@
         <!-- Offer area start here -->
         <section class="offer-area secondary-bg pt-120 pb-200">
             <div class="offer__shadow wow fadeIn" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <img src="{{asset('public/assets')}}/images/shape/offer-shadow-shape.png" alt="shadow">
+                <img src="{{ asset('public/assets') }}/images/shape/offer-shadow-shape.png" alt="shadow">
             </div>
             <div class="offer__shape-left">
                 <img class="wow fadeInUpBig" data-wow-delay="400ms" data-wow-duration="1500ms"
-                    src="{{asset('public/assets')}}/images/shape/offer-bg-shape-left.png" alt="shape">
+                    src="{{ asset('public/assets') }}/images/shape/offer-bg-shape-left.png" alt="shape">
             </div>
             <div class="offer__shape-right">
                 <img class="wow fadeInDownBig" data-wow-delay="400ms" data-wow-duration="1500ms"
-                    src="{{asset('public/assets')}}/images/shape/offer-bg-shape-right.png" alt="shape">
+                    src="{{ asset('public/assets') }}/images/shape/offer-bg-shape-right.png" alt="shape">
             </div>
             <div class="container">
                 <div class="d-flex gap-4 flex-wrap align-items-center justify-content-between mb-95">
                     <div class="section-header">
                         <h5 class="wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <img class="me-1" src="{{asset('public/assets')}}/images/icon/section-title.png" alt="icon">
+                            <img class="me-1" src="{{ asset('public/assets') }}/images/icon/section-title.png"
+                                alt="icon">
                             Our offering
                         </h5>
                         <h2 class="text-white wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">Enhance
                             and Pioneer Using <br> Technology Trends</h2>
                     </div>
-                    <a href="{{ route('services')}}" class="btn-one wow fadeInUp" data-wow-delay="200ms"
+                    <a href="{{ route('services') }}" class="btn-one wow fadeInUp" data-wow-delay="200ms"
                         data-wow-duration="1500ms">Explore
                         More <i class="fa-regular fa-arrow-right-long"></i></a>
                 </div>
@@ -119,10 +122,12 @@
                         data-wow-duration="1500ms">
                         <div class="offer__item">
                             <div class="shape-top">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-top.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-top.png"
+                                    alt="shape">
                             </div>
                             <div class="shape-bottom">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-bottom.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-bottom.png"
+                                    alt="shape">
                             </div>
                             <div class="offer__icon">
                                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
@@ -139,10 +144,12 @@
                         data-wow-duration="1500ms">
                         <div class="offer__item">
                             <div class="shape-top">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-top.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-top.png"
+                                    alt="shape">
                             </div>
                             <div class="shape-bottom">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-bottom.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-bottom.png"
+                                    alt="shape">
                             </div>
                             <div class="offer__icon">
                                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
@@ -162,10 +169,12 @@
                         data-wow-duration="1500ms">
                         <div class="offer__item">
                             <div class="shape-top">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-top.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-top.png"
+                                    alt="shape">
                             </div>
                             <div class="shape-bottom">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-bottom.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-bottom.png"
+                                    alt="shape">
                             </div>
                             <div class="offer__icon">
                                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
@@ -193,10 +202,12 @@
                         data-wow-duration="1500ms">
                         <div class="offer__item">
                             <div class="shape-top">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-top.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-top.png"
+                                    alt="shape">
                             </div>
                             <div class="shape-bottom">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-bottom.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-bottom.png"
+                                    alt="shape">
                             </div>
                             <div class="offer__icon">
                                 <svg width="26" height="36" viewBox="0 0 26 36" fill="none"
@@ -225,10 +236,12 @@
                         data-wow-duration="1500ms">
                         <div class="offer__item">
                             <div class="shape-top">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-top.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-top.png"
+                                    alt="shape">
                             </div>
                             <div class="shape-bottom">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-bottom.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-bottom.png"
+                                    alt="shape">
                             </div>
                             <div class="offer__icon">
                                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
@@ -258,10 +271,12 @@
                         data-wow-duration="1500ms">
                         <div class="offer__item">
                             <div class="shape-top">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-top.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-top.png"
+                                    alt="shape">
                             </div>
                             <div class="shape-bottom">
-                                <img src="{{asset('public/assets')}}/images/shape/offter-item-shape-bottom.png" alt="shape">
+                                <img src="{{ asset('public/assets') }}/images/shape/offter-item-shape-bottom.png"
+                                    alt="shape">
                             </div>
                             <div class="offer__icon">
                                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
@@ -288,16 +303,17 @@
             <div class="container">
                 <div class="brand__wrp">
                     <div class="brand__shape">
-                        <img src="{{asset('public/assets')}}/images/shape/brand-shape.png" alt="">
+                        <img src="{{ asset('public/assets') }}/images/shape/brand-shape.png" alt="">
                     </div>
                     <div class="swiper brand__slider">
                         <div class="swiper-wrapper">
-                            @foreach ($brands as $brand )
-                                 <div class="swiper-slide">
-                                <div class="brand__image image">
-                                    <img src="{{ asset('storage/app/public/'. $brand->banner_image) }}" alt="image" >
+                            @foreach ($brands as $brand)
+                                <div class="swiper-slide">
+                                    <div class="brand__image image">
+                                        <img src="{{ asset('storage/app/public/' . $brand->banner_image) }}"
+                                            alt="image">
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
                         </div>
@@ -305,11 +321,12 @@
                 </div>
             </div>
         </div>
-        <!-- Brand area end here -->
 
-<br>
-        <!-- Testimonial area start here -->
-        <section class="testimonial-area bg-image pt-120 pb-120" data-background="{{asset('public/assets')}}/images/bg/testimonial-bg.png">
+
+        <br>
+
+        <section class="testimonial-area bg-image pt-120 pb-120"
+            data-background="{{ asset('public/assets') }}/images/bg/testimonial-bg.png">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
@@ -318,29 +335,29 @@
                                 <h5 class="text-white">
                                     <svg width="28" height="12" viewBox="0 0 28 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.75" y="0.75" width="18.5" height="10.5" rx="5.25" stroke="white"
-                                            stroke-width="1.5" />
+                                        <rect x="0.75" y="0.75" width="18.5" height="10.5" rx="5.25"
+                                            stroke="white" stroke-width="1.5" />
                                         <rect x="8" width="20" height="12" rx="6" fill="white" />
                                     </svg>
                                     TALK TO US
                                 </h5>
                                 <h2 class="text-white">How May We Help You!</h2>
                             </div>
-  <form action="{{ route('contact.store') }}" method="post" autocomplete="off">
+                            <form action="{{ route('contact.store') }}" method="post" autocomplete="off">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="name">Your name*</label>
                                         <input type="text" id="name" name="name" value="{{ old('name') }}"
-                                            placeholder="Enter your name" >
+                                            placeholder="Enter your name">
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="email">Your Email*</label>
-                                        <input type="email" id="email" name="email"
-                                            value="{{ old('email') }}" placeholder="Enter your email"  >
+                                        <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                            placeholder="Enter your email">
                                         @error('email')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -348,7 +365,7 @@
                                     <div class="col-sm-6">
                                         <label for="subject">subject</label>
                                         <input type="text" id="subject" name="subject"
-                                            value="{{ old('subject') }}" placeholder="Subject"  >
+                                            value="{{ old('subject') }}" placeholder="Subject">
                                         @error('subject')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -359,7 +376,7 @@
                                             value="{{ old('phone_no') }}" maxlength="10" minlength="10"
                                             pattern="\d{10}" inputmode="numeric"
                                             oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-                                            placeholder="Enter 10-digit number"  >
+                                            placeholder="Enter 10-digit number">
 
                                         @error('phone_no')
                                             <small class="text-danger">{{ $message }}</small>
@@ -367,7 +384,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="massage">Message*</label>
-                                        <textarea id="massage" placeholder="Write Message" name="message" value="{{ old('message') }}"  ></textarea>
+                                        <textarea id="massage" placeholder="Write Message" name="message" value="{{ old('message') }}"></textarea>
                                         @error('message')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -380,7 +397,8 @@
                     <div class="col-lg-6 ps-2 ps-lg-5">
                         <div class="section-header mb-40">
                             <h5 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                <img class="me-1" src="{{asset('public/assets')}}/images/icon/section-title.png" alt="icon">
+                                <img class="me-1" src="{{ asset('public/assets') }}/images/icon/section-title.png"
+                                    alt="icon">
                                 CLIENTS REVIEW
                             </h5>
                             <h2 class="wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">What They Say
@@ -395,13 +413,13 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="testimonial__item">
-                                        <svg class="coma" width="50" height="37" viewBox="0 0 50 37" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                                                fill="#3C72FC" />
+                                        <svg class="coma" width="50" height="37" viewBox="0 0 50 37"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z" fill="#3C72FC" />
                                         </svg>
                                         <div class="d-flex align-items-center gap-3">
-                                            <img src="{{asset('public/assets')}}/images/testimonial/testimonial-image1.png" alt="image">
+                                            <img src="{{ asset('public/assets') }}/images/testimonial/testimonial-image1.png"
+                                                alt="image">
                                             <div class="testi-info">
                                                 <h4>Kathryn Murphy</h4>
                                                 <p>Web Developer</p>
@@ -423,13 +441,13 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testimonial__item">
-                                        <svg class="coma" width="50" height="37" viewBox="0 0 50 37" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                                                fill="#3C72FC" />
+                                        <svg class="coma" width="50" height="37" viewBox="0 0 50 37"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z" fill="#3C72FC" />
                                         </svg>
                                         <div class="d-flex align-items-center gap-3">
-                                            <img src="{{asset('public/assets')}}/images/testimonial/testimonial-image2.png" alt="image">
+                                            <img src="{{ asset('public/assets') }}/images/testimonial/testimonial-image2.png"
+                                                alt="image">
                                             <div class="testi-info">
                                                 <h4>Alex Rony</h4>
                                                 <p>Web Designer</p>
@@ -469,18 +487,20 @@
             <div class="container">
                 <div class="section-header text-center mb-60">
                     <h5 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <img class="me-1" src="{{asset('public/assets')}}/images/icon/section-title.png" alt="icon">
+                        <img class="me-1" src="{{ asset('public/assets') }}/images/icon/section-title.png"
+                            alt="icon">
                         Blogs
                     </h5>
-                    <h2 class="wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">Explore Blogs and News</h2>
+                    <h2 class="wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">Explore Blogs and News
+                    </h2>
                 </div>
                 <div class="row g-4">
-                 @foreach ($blogs as $blog)
+                    @foreach ($blogs as $blog)
                         <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
                             data-wow-duration="1500ms">
                             <div class="blog__item">
-                                <a href="{{ url('blog/' . $blog->slug)}}" class="blog__image d-block image">
-                                    <img src="{{ asset('public/'. $blog->banner) }}" alt="image">
+                                <a href="{{ url('blog/' . $blog->slug) }}" class="blog__image d-block image">
+                                    <img src="{{ asset('public/' . $blog->banner) }}" alt="image">
                                     <div class="blog-tag">
                                         <h3 class="text-white">{{ $blog->created_at->format('d') }}</h3>
                                         <span class="text-white">{{ $blog->created_at->format('M') }}</span>
@@ -523,11 +543,13 @@
                                                     </clipPath>
                                                 </defs>
                                             </svg>
-                                            <a href="{{ url('blog/' . $blog->slug) }}">{{ $blog->reviews->where('status', 'active')->count() ?? '0'}} Comments</a>
+                                            <a href="{{ url('blog/' . $blog->slug) }}">{{ $blog->reviews->where('status', 'active')->count() ?? '0' }}
+                                                Comments</a>
                                         </li>
                                     </ul>
-                                    <h3><a href="{{ url('blog/' . $blog->slug)}}" class="primary-hover">{{$blog->title}}</a></h3>
-                                    <a class="mt-25 read-more-btn" href="{{ url('blog/' . $blog->slug)}}">Read More <i
+                                    <h3><a href="{{ url('blog/' . $blog->slug) }}"
+                                            class="primary-hover">{{ $blog->title }}</a></h3>
+                                    <a class="mt-25 read-more-btn" href="{{ url('blog/' . $blog->slug) }}">Read More <i
                                             class="fa-regular fa-arrow-right-long"></i></a>
                                 </div>
                             </div>
@@ -539,7 +561,7 @@
         </section>
         <!-- Team area end here -->
     </main>
-     <script>
+    <script>
         document.querySelector("form").addEventListener("submit", function(e) {
             e.preventDefault();
 

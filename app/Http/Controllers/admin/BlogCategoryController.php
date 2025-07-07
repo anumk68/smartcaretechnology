@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
@@ -21,33 +20,31 @@ class BlogCategoryController extends Controller
     {
         $request->validate([
             'category_name' => 'required|max:255|unique:blog_categories,category_name',
-            'slug' => 'required|max:255|unique:blog_categories,slug',
+            'slug'          => 'required|max:255|unique:blog_categories,slug',
         ]);
-        $category = new BlogCategory();
+        $category                = new BlogCategory();
         $category->category_name = $request->category_name;
-        $category->slug = Str::slug(strtolower($request->slug));
+        $category->slug          = Str::slug(strtolower($request->slug));
         $category->save();
         return redirect()->route('blog-category')->with('success', 'Blog category has been created successfully');
     }
 
-
     public function edit($id)
     {
-        $categories = BlogCategory::find($id);
+        $categories     = BlogCategory::find($id);
         $all_categories = BlogCategory::all();
-        return view('admin.blog.category.edit',  compact('categories', 'all_categories'));
+        return view('admin.blog.category.edit', compact('categories', 'all_categories'));
     }
 
-
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'category_name' => 'required|max:255',
         ]);
 
-        $category = BlogCategory::find($id);
+        $category                = BlogCategory::find($id);
         $category->category_name = $request->category_name;
-        $category->slug = $category->slug;
+        $category->slug          = $category->slug;
         $category->save();
 
         return redirect()->route('blog-category')->with('success', 'Blog category has been updated successfully');

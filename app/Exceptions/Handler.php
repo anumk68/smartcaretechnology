@@ -4,13 +4,16 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
+    // existing code...
+
     public function render($request, Throwable $exception)
     {
-        // Custom 404 handler
-        if ($this->isHttpException($exception) && $exception->getStatusCode() === 404) {
+        // Handle 404 errors
+        if ($exception instanceof NotFoundHttpException) {
             return response()->view('frontend.errors.404', [], 404);
         }
 

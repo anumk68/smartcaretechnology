@@ -10,19 +10,19 @@
                             <h2>Create Service</h2>
                         </div>
                         <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf <!-- CSRF token -->
+                            @csrf
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="service_name">Service Name*</label>
                                     <input type="text" name="service_name" class="form-control"
-                                        value="{{ old('service_name') }}"  >
+                                        value="{{ old('service_name') }}">
                                     @error('service_name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="brand_id">Brand*</label>
-                                    <select name="brand_id" class="form-control"  >
+                                    <select name="brand_id" class="form-control">
                                         <option value="">Select Brand</option>
                                         @foreach ($brands as $brand)
                                             <option value="{{ $brand->id }}"
@@ -73,9 +73,6 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <!-- Status defaults to 'active' in the database -->
-
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary" type="submit">Save Service</button>

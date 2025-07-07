@@ -65,44 +65,7 @@
                 <div class="menu-title">Services</div>
             </a>
         </li>
-        {{-- <li>
-            <a href="#">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
-                </div>
-                <div class="menu-title">Brand Series</div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
-                </div>
-                <div class="menu-title">FAQs</div>
-            </a>
-        </li>   --}}
 
-
-        {{-- <li>
-            <a href="#">
-                <div class="parent-icon"><i class="fa fa-home" aria-hidden="true"></i>
-                </div>
-                <div class="menu-title"> Home Page Form</div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="parent-icon"><i class="fa fa-home" aria-hidden="true"></i>
-                </div>
-                <div class="menu-title"> Service Page Form</div>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                <div class="parent-icon"><i class="lni lni-cog"></i>
-                </div>
-                <div class="menu-title"> Setting</div>
-            </a>
-        </li> --}}
         <li>
             <a href="{{ route('logout') }}">
                 <div class="parent-icon"><i class="bi bi-lock-fill"></i>

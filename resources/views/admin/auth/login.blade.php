@@ -68,16 +68,11 @@
 										<button type="submit" class="btn btn-primary">Login</button>
 									</div>
 
-
-{{--
-									<div class="text-center">
-										<p class="mb-0">Don't have an account? <a href="{{ route('register') }}">Sign up</a></p>
-									</div> --}}
 								</form>
 
 								<div class="login-separater text-center my-4"><hr></div>
 							</div>
-						</div> <!-- /.card -->
+						</div>
 					</div>
 				</div>
 			</div>

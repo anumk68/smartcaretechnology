@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>New Contact Message</title>
@@ -17,7 +18,7 @@
             margin: 30px auto;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -39,12 +40,14 @@
         }
     </style>
 </head>
+
 <body>
     <div class="email-container">
         <h2>New Contact Message</h2>
-        <p><span class="label">Name:</span> {{  $details['name'] ?? '-' }}</p>
+        <p><span class="label">Name:</span> {{ $details['name'] ?? '-' }}</p>
         <p><span class="label">Email:</span> {{ $details['email'] ?? '-' }}</p>
         <p><span class="label">Message:</span><br> {{ $details['message'] ?? '-' }}</p>
     </div>
 </body>
+
 </html>

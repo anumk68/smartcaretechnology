@@ -89,10 +89,7 @@
                                         @else
                                             <span class="badge bg-secondary">{{ ucfirst($review->status) }}</span>
                                         @endif
-
                                     </td>
-
-
                                 </tr>
                             @endforeach
                         </tbody>

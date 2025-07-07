@@ -78,16 +78,10 @@
                           @endif
                       </ul>
 
-                      {{-- Show More Button --}}
                       @if ($brands->count() > 4)
                           <button id="seeMoreBtn" class="btn btn-link p-0">See More</button>
                       @endif
 
-                      {{-- <li><a href="service.php"><i class="fa-regular fa-angles-right me-1"></i> Web Designing</a>
-                        </li>
-                        <li><a href="service.php"><i class="fa-regular fa-angles-right me-1"></i> Mobile App Development</a>
-                        </li>
-                        <li><a href="service.php"><i class="fa-regular fa-angles-right me-1"></i>  Website Redesign</a></li> --}}
 
                   </ul>
               </div>

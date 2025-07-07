@@ -99,18 +99,15 @@
 @endsection
 
 @section('scripts')
-<!-- SweetAlert2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTable
         $('#servicesTable').DataTable({
             "order": [[0, "asc"]],
             "pageLength": 10,
         });
 
-        // Delete confirmation with SweetAlert2
         document.body.addEventListener('submit', function(event) {
             if (event.target.matches('.delete-form')) {
                 event.preventDefault();

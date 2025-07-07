@@ -12,7 +12,7 @@
                         <form action="{{ route('services.update', $service->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            @method('PUT') <!-- Important: Use PUT for updating -->
+                            @method('PUT')
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -85,9 +85,6 @@
                                     </option>
                                 </select>
                             </div><br>
-
-                            <!-- Status defaults to 'active' in the database -->
-
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary" type="submit">Update Service</button>

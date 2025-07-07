@@ -13,7 +13,7 @@
     </style>
 
     <main>
-        <!-- Page banner area start here -->
+
         <section class="banner__inner-page bg-image pt-180 pb-180 bg-image"
             data-background="{{ asset('public/assets') }}/images/banner/banner-inner-page.jpg">
             <div class="shape2 wow slideInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
@@ -27,7 +27,7 @@
                     alt="shape">
             </div>
             <div class="container">
-                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog - {{$blog->title}}</h2>
+                <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog - {{ $blog->title }}</h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
                     <a href="{{ route('index') }}">Home</a><span><i class="fa-regular fa-angles-right mx-2"></i>Blog
                         Details</span>
@@ -41,7 +41,7 @@
                     <div class="col-lg-8 order-2 order-lg-1">
                         <div class="blog__item blog-single__left-item shadow-none">
                             <div class="image">
-                                <img src="{{ asset('public/' . $blog->banner) }} " alt="image" >
+                                <img src="{{ asset('public/' . $blog->banner) }} " alt="image">
                             </div>
                             <div class="blog__content p-0">
                                 <ul class="pb-3 pt-30 bor-bottom d-flex gap-4 flex-wrap align-items-center">
@@ -129,7 +129,8 @@
 
                             @if ($blog_review->count() > 2)
                                 <div class="text-center mt-4">
-                                    <button id="toggle-reviews-btn" ><a href="#0" class="primary-hover" style="color:#7F1054;">See More</a></button>
+                                    <button id="toggle-reviews-btn"><a href="#0" class="primary-hover"
+                                            style="color:#7F1054;">See More</a></button>
                                 </div>
                             @endif
 

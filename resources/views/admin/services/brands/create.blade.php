@@ -75,10 +75,6 @@
                                     @enderror
                                 </div>
                             </div>
-
-
-                            <!-- Status defaults to 'active' in the database, so no need to include a field here unless you want to give the option -->
-
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary" type="submit">Save Brand</button>
